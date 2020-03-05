@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+<body>
+<style>
+	.dropdown ul {
+		display: none;
+		list-style: none;
+		margin: 0;
+		border: 1px solid black;
+		padding: 10px;
+		width: 200px;
+	}
+	
+	.dropdown.on ul {
+		display: block;
+	}
+</style>
+<div id="app">
+	<!--img src="https://picsum.photos/200/200?image=353"-->
+	<!--img v-bind:src="image"-->
+	<!--img :id="`thumnail_${id}`" :src="image"-->
+	
+	<div :style="[style, fontStyle]">
+		테스트 DIV
+	</div>
+	<div :class="[dropdown, toggle]">
+		<ul>
+			<li><a href="#">메뉴1</a></li>
+			<li><a href="#">메뉴2</a></li>
+		</ul>
+	</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+	let app = new Vue({
+		el: '#app',
+		data() {
+			return {
+				id: 1,
+				image: 'https://picsum.photos/200/200?image=353',
+				//style: 'background: red'
+				//JSON Style
+				//style: {
+				//	background: 'red',
+				//	//'font-size' : '',
+				//	fontSize : '10px',
+				//	//'font-family' : '',
+				//	fontFamily : 'dotum'
+				//}
+			
+				style: {
+					background: 'red',
+				},
+				fontStyle: {
+					fontSize: '20px',
+					fontFamily: 'dotum'
+				},
+				//Class : String Type
+				//dropdown: 'dropdown',
+				//Class : JSON Type
+				//dropdown: {
+				//	dropdown: true
+				//}
+				dropdown: 'dropdown',
+				toggle: {
+					on: false
+				}
+			};
+		}
+	});
+</script>
+</body>
+</html>

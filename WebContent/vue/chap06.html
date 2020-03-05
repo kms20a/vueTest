@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+<body>
+<div id="app">
+	<div class="container mx=auto mt-10">
+		<div class="flex">
+			<product
+				image="https://picsum.photos/300/200?image=0"
+				avartar="https://picsum.photos/30/30?image=80"
+				title="노트북"
+				description="노트북 상품 설명"
+			></product>
+			<product
+				image="https://picsum.photos/300/200?image=0"
+				avartar="https://picsum.photos/30/30?image=80"
+				title="아이폰"
+				description="아이폰 상품 설명"
+			></product>
+			<product
+				image="https://picsum.photos/300/200?image=0"
+				avartar="https://picsum.photos/30/30?image=80"
+				title="포크"
+				description="포크 상품 설명"
+			></product>
+			<product
+				image="https://picsum.photos/300/200?image=0"
+				avartar="https://picsum.photos/30/30?image=80"
+				title="책"
+				description="책 상품 설명"
+			></product>
+		</div>
+	</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+	<!-- Vue 커스텀 컴포넌트 설정 -->
+	Vue.component('product', {
+		props: ['image', 'title', 'description', 'avatar'],
+		template:`
+			<div class="flex-1 px-5">
+				<div class="max-w-sm rounded overflow-hidden shadow-lg">
+					<img class="w-full" :src="image">
+					<div class="px-6 py-4">
+						<div class="relative">
+							<div class="absolute pin-l pin-t bg-white border border-pear-dark rounded-full" style="...">
+								<img class="block rounded-full" :src="avatar" width="30">
+							</div>
+						</div>
+						<div class="font-bold text-xl mb-2">{{ title }}</div>
+						<p class="text-gray-darker text-base">
+							{{ description }}
+						</p>
+					</div>
+				</div>
+			</div>
+		`
+	});
+
+	let app = new Vue({
+		el: '#app',
+		data() {
+			return {
+				
+			}
+		}
+	})
+</script>
+</body>
+</html>

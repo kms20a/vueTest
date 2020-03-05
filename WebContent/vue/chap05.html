@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+</head>
+<body>
+<div id="app">
+	<!-- button type="button" v-on:click="add">더하기</button-->
+	<button type="button" @click="add">더하기</button>
+	{{ counter }}
+	
+	<!--input type="text" @keyup="keyUp"-->
+	<input type="text" @keyup.enter="keyUp">
+</div>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+	//함수
+	function test() {
+		
+	}
+	let object = {
+		//메소드
+		test: function(){
+			
+		}
+	}
+	let object2 = {
+		//메소드
+		test: () => {
+			
+		}
+	}
+	class testClass {
+		//메소드
+		test() {
+			
+		}
+	}
+
+	let app = new Vue({
+		el: '#app',
+		data() {
+			return {
+				counter: 0
+			}
+		},
+		methods: {
+			add() {
+				//console.log(this.counter);
+				this.counter++;
+			},
+			/*
+			화살표 함수는 사용하면 안된다고 함
+			add: () => {
+				console.log(this.counter);
+			},
+			*/
+			keyUp(ev) {
+				if(ev.keyCode !== 13){
+					console.log('엔터키 아님');
+					return;
+				}
+				console.log('엔터키 눌림');
+			}
+		}
+	})
+</script>
+</body>
+</html>
